@@ -80,7 +80,7 @@ namespace TRX_Merger.ReportModel
 
         public TestClassReport GetTestClassReport(string className)
         {
-            List<string> tests = Run.TestDefinitions.Where(td => td.TestMethod.ClassName.EndsWith(className)).Select(ttdd => ttdd.TestMethod.Name).ToList();
+            List<string> tests = Run.TestDefinitions.Where(td => td.TestMethod.ClassName.EndsWith(className)).Select(ttdd => ttdd.Name).ToList();
             
             var results = Run.Results.Where(r => tests.Contains(r.TestName)).ToList();
            

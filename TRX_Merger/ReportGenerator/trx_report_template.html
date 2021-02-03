@@ -198,12 +198,12 @@
                         @foreach (var test in Model.AllFailedTests)
                         {
                         <tr class="danger">
-                            <td id="@String.Format("err{0}",test.TestId)" style="display:none">@test.AsJson()</td>
+                            <td id="@String.Format("err{0}",test.TestId2)" style="display:none">@test.AsJson()</td>
                             <td>@test.Result.TestName</td>
                             <td>@DateTime.Parse(test.Result.StartTime).ToString("MM.dd.yyyy hh\\:mm\\:ss")</td>
                             <td>@TimeSpan.Parse(test.Result.Duration).TotalSeconds.ToString("n2") sec.</td>
                             <td>FAILED</td>
-                            <td><a style="cursor: pointer" onclick="showTestDetails(@String.Format("err{0}",test.TestId))">Details</a></td>
+                            <td><a style="cursor: pointer" onclick="showTestDetails(@String.Format("err{0}",test.TestId2))">Details</a></td>
 
                         </tr>
                         }
@@ -266,12 +266,12 @@
                             string rowClass = test.Result.Outcome == "Passed" ? "success" : "danger";
 
                             <tr class="@rowClass">
-                                <td id="@test.TestId" style="display:none">@test.AsJson()</td>
+                                <td id="@test.TestId2" style="display:none">@test.AsJson()</td>
                                 <td>@test.Result.TestName</td>
                                 <td>@DateTime.Parse(test.Result.StartTime).ToString("MM.dd.yyyy hh\\:mm\\:ss")</td>
                                 <td>@TimeSpan.Parse(test.Result.Duration).TotalSeconds.ToString("n2") sec.</td>
                                 <td>@test.Result.Outcome</td>
-                                <td><a style="cursor: pointer" onclick="showTestDetails(@test.TestId)">Details</a></td>
+                                <td><a style="cursor: pointer" onclick="showTestDetails(@test.TestId2)">Details</a></td>
                             </tr>
                             }
                         </tbody>

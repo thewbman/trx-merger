@@ -86,6 +86,12 @@ namespace TRX_Merger.ReportModel
                 return id;
             }
         }
+        public string TestId2 {
+            get {
+                //return Uri.EscapeDataString(TestId);
+                return Result?.ExecutionId?.Replace("-", "_") ?? TestId?.Replace(".", "").Replace("(", "").Replace(")", "").Replace(" ", "_").Replace(".", "").Replace(":", "_").Replace(",", "_").Replace("-", "_").Replace("+", "_").Replace("[", "").Replace("]", "");
+            }
+        }
 
         private List<KeyValuePair<string, string>> cucumberStdOut;
         public List<KeyValuePair<string, string>> CucumberStdOut
